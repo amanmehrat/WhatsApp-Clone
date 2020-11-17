@@ -1,0 +1,45 @@
+.ReactModal__Overlay {
+    flex: 1;
+    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+    background-position: center;
+    background-repeat: repeat;
+    overflow-y: scroll;
+}
+
+.login__formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__formGroup>label {
+    margin-bottom: 5px
+}
+
+.login__formGroup>input {
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+.login__formGroup>input:focus {
+    outline: none;
+}
+
+form>button {
+    margin-left: 45%;
+    background-color: #25D366;
+    color: white;
+    font-size: 18px;
+    padding: 7px 15px;
+    margin-top: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login__heading {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+}

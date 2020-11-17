@@ -13,7 +13,8 @@ const io = socketIo(server);
 
 
 //config
-const connection_url = `Your MONGO:DB--URL`
+//const connection_url = `Your MONGO:DB--URL`
+const connection_url = `mongodb+srv://amanmehrat956:amanmehrat956@mycluster.n8d7q.mongodb.net/WhatsappClone?retryWrites=true&w=majority`
 mongoose.connect(connection_url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(obj => console.log(`CONNECTED`))
     .catch(err => console.log(`error while connecting to DB`, err));

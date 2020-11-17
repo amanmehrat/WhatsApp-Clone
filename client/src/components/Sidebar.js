@@ -11,7 +11,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import AddIcon from '@material-ui/icons/Add';
 import './Sidebar.css'
 
-function Sidebar() {
+function Sidebar({ user }) {
+    console.log("user", user);
     const addButton = useRef(null);
     const [value, setValue] = useState("");
     const [rooms, setRooms] = useState([]);
@@ -49,7 +50,6 @@ function Sidebar() {
         const data = rooms.filter(room => room.RoomName.toUpperCase().startsWith(e.target.value.toUpperCase()));
         setFilterRooms(data);
         if (data.length <= 0) {
-            console.log(addButton);
             addButton.current.style.display = "block";
         }
     }

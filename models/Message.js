@@ -4,7 +4,7 @@ const MessageSchemas = new mongoose.Schema({
     RoomId: mongoose.Types.ObjectId,
     Message: String,
     Timespan: Date,
-    IsRoomOwner: Boolean
+    CreatedBy: String
 })
 
 module.exports = mongoose.model('Message', MessageSchemas);

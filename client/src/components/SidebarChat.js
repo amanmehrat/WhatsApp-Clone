@@ -12,10 +12,8 @@ function SidebarChat({ roomObj }) {
 
     useEffect(() => {
         const socket = socketIOClient(ENDPOINT);
-
         socket.on("LASTMESSAGE" + roomObj._id, data => {
             setLastMessage(data);
-
         });
         return () => socket.disconnect();
     }, [roomObj._id]);

@@ -15,7 +15,6 @@ router.get("/rooms", async (req, res) => {
 })
 router.get("/rooms/:roomId", async (req, res) => {
     const roomId = req.params.roomId;
-    // console.log(roomId);
     try {
         const result = await Room.find({ _id: roomId });
         res.status(200).json(result);
@@ -35,7 +34,7 @@ router.get("/rooms/:roomId/messages", async (req, res) => {
 router.post("/rooms/:roomId/messages", async (req, res) => {
     try {
         const result = await Message.create(req.body);
-        await Room.updateOne({ _id: req.body.RoomId }, { $set: { LastMessage: req.body.Message, Timespan: new Date() } });
+        await Room.updateOne({ _id: req.body.RoomId }, { $set: { LastMessage: req.body.Message, Timespan: new Date(), CreatedBy: req.body.CreatedBy } });
 
         res.status(201).send(result);
     } catch (err) {

@@ -8,7 +8,7 @@ import axios from "../axios";
 import { MessageContext } from '../context/MessagesContext'
 import { ActionTypes } from '../context/MessagesContext'
 
-function Chat() {
+function Chat({ user }) {
     const [value, setValue] = useState("");
     const [lastSeen, setLastSeen] = useState("");
     const [flag, setFlag] = useState(true);
@@ -43,7 +43,7 @@ function Chat() {
             RoomId: roomId,
             Message: value,
             Timespan: new Date(),
-            IsRoomOwner: !flag
+            CreatedBy: user.name
         };
         setFlag(!flag);
         axios.post("/rooms/" + roomId + "/messages", obj)
@@ -81,7 +81,7 @@ function Chat() {
             </div>
             <div className="chat__body">
                 {messages.map(message => (
-                    <p key={message._id} className={message.IsRoomOwner ? "chat__message chat__reciever" : "chat__message"}>
+                    <p key={message._id} className={message.CreatedBy == user.name ? "chat__message chat__reciever" : "chat__message"}>
                         <span className="chat__name">
                             {message.CreatedBy}
                         </span>
